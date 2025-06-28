@@ -1,34 +1,68 @@
 package product;
 
-import product.builder.ProductBuilder;
-
-import java.util.Objects;
-
 /**
  * Продукт с двумя обязательными свойствами partA и partB.
- * В стиле Lombok: содержит static builder() и вложенный product.builder.ProductBuilder.
+ * В стиле Lombok: содержит static builder() и вложенный ProductBuilder.
  */
 public class Product {
-
     private final String partA;
     private final String partB;
 
-    // Package-private конструктор (доступен только в своём пакете)
-    public Product(String partA, String partB) {
-        this.partA = Objects.requireNonNull(partA, "partA must not be null");
-        this.partB = Objects.requireNonNull(partB, "partB must not be null");
+    private Product(ProductBuilder b) {
+        this.partA = b.partA;
+        this.partB = b.partB;
     }
 
+    /** Точка входа для сборки продукта. */
     public static ProductBuilder builder() {
         return new ProductBuilder();
     }
 
-    // Геттеры и toString
     public String getPartA() { return partA; }
     public String getPartB() { return partB; }
 
     @Override
     public String toString() {
-        return "product.Product{partA='" + partA + "', partB='" + partB + "'}";
+        return "Product{partA='" + partA + "', partB='" + partB + "'}";
+    }
+
+    /**
+     * Вложенный билдер
+     */
+    public static class ProductBuilder {
+        private String partA;
+        private String partB;
+
+        /**
+         * Устанавливает partA.
+         * @param partA значение
+         * @return self
+         */
+        public ProductBuilder partA(String partA) {
+            this.partA = partA;
+            return this;
+        }
+
+        /**
+         * Устанавливает partB.
+         * @param partB значение
+         * @return self
+         */
+        public ProductBuilder partB(String partB) {
+            this.partB = partB;
+            return this;
+        }
+
+        /**
+         * Собирает продукт, проверяя обязательность полей.
+         * @return готовый Product
+         * @throws IllegalStateException если поля не заданы
+         */
+        public Product build() {
+            if (partA == null || partB == null) {
+                throw new IllegalStateException("both partA and partB must be set");
+            }
+            return new Product(this);
+        }
     }
 }
