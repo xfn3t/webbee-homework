@@ -1,6 +1,6 @@
-import component.Component;
-import component.ComponentImpl;
-import decorator.DecoratorImpl;
+import main.java.ru.pattern.component.Component;
+import main.java.ru.pattern.component.ComponentImpl;
+import main.java.ru.pattern.decorator.DecoratorImpl;
 
 /**
  * Паттерн Decorator динамически добавляет объектам

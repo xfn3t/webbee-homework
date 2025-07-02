@@ -1,11 +1,12 @@
-package decorator;
+package main.java.ru.pattern.decorator;
 
-import component.Component;
+import main.java.ru.pattern.component.Component;
 
 /**
  * Конкретный декоратор, добавляющий поведение после базового.
  */
 public class DecoratorImpl extends Decorator {
+
     public DecoratorImpl(Component wrappee) {
         super(wrappee);
     }
@@ -13,6 +14,7 @@ public class DecoratorImpl extends Decorator {
     @Override
     public void operation() {
         super.operation();
-        System.out.println("decorator.DecoratorImpl added behavior");
+        System.out.println("DecoratorImpl added behavior");
     }
+
 }
