@@ -1,11 +1,11 @@
-package adapter;
+package main.java.ru.pattern.adapter;
 
-import newRel.NewInterface;
-import old.OldInterface;
+import main.java.ru.pattern.newRel.NewInterface;
+import main.java.ru.pattern.old.OldInterface;
 
 /**
- * Адаптер, позволяет использовать old.OldInterface
- * через newRel.NewInterface.
+ * Адаптер, позволяет использовать OldInterface
+ * через NewInterface.
  */
 public class Adapter implements NewInterface {
 
@@ -19,4 +19,5 @@ public class Adapter implements NewInterface {
     public String newRequest() {
         return adaptee.oldRequest();
     }
+
 }
