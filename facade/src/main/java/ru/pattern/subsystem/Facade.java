@@ -1,8 +1,10 @@
-package subsystem;
+package main.java.ru.pattern.subsystem;
 
 /**
  * Фасад упрощает использование нескольких подсистем
  * через единый метод operation().
+ *
+ * @author xfnet
  */
 public class Facade {
 
@@ -13,4 +15,5 @@ public class Facade {
         a.opA();
         b.opB();
     }
+
 }
