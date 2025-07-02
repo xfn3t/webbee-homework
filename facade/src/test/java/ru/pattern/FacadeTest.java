@@ -1,16 +1,19 @@
 package test.java.ru.pattern;
 
 import main.java.ru.pattern.subsystem.Facade;
+import org.junit.Test;
 
-public class FacadeTest {
+/**
+ * Тесты для паттерна Facade.
+ */
+public final class FacadeTest {
 
-    public static void testOperation() {
-        new Facade().operation();
-        System.out.println("testOperation passed");
-    }
-
-    public static void main(String[] args) {
-        testOperation();
-    }
+  /**
+   * Проверяет выполнение операции фасада.
+   */
+  @Test
+  public void testOperation() {
+    new Facade().operation();
+  }
 
 }
