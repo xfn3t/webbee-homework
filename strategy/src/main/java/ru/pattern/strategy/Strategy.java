@@ -1,9 +1,10 @@
-package strategy;
+package main.java.ru.pattern.strategy;
 
 /**
  * Интерфейс стратегии инкапсулирует алгоритм.
  */
 public interface Strategy {
+
     /**
      * Выполняет алгоритм над двумя числами.
      * @param a первый операнд
@@ -11,4 +12,5 @@ public interface Strategy {
      * @return результат
      */
     int execute(int a, int b);
+
 }
